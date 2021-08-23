@@ -3,7 +3,11 @@ import { createServer } from 'http';
 import Environment from "./common/environment";
 
 const http = createServer();
-const io = new Server(http);
+const io = new Server(http,{
+  cors: {
+    origin: ['http://localhost:3000','https://amritb.github.io/']
+  }
+});
 
 io.on("connection", (socket) => {
   console.log(socket);
